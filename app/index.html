@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10161d">
+  <title>VICE / AFTERGLOW — cover studio</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="workspace">
+    <aside class="editor">
+      <header class="brand"><span class="brand-mark">V/A</span><div><p class="eyebrow">POSTER STUDIO · OFFLINE</p><h1>VICE / <em>AFTERGLOW</em></h1></div></header>
+      <p class="intro">Build a neon-night triptych from your own photos. Nothing leaves your device.</p>
+      <section class="control-group">
+        <label class="control-title" for="photo">01 <span>PHOTO ROLL</span></label>
+        <label class="upload" for="photo"><span class="upload-icon">＋</span><span><strong>Choose photos</strong><small>JPG, PNG or WebP · stored locally</small></span></label>
+        <input id="photo" type="file" accept="image/*" multiple>
+        <div class="sample-row"><button class="quiet sample" data-sample="boulevard.jpg">Use Boulevard</button><button class="quiet sample" data-sample="pier.jpg">Use Moon Pier</button></div>
+      </section>
+      <section class="control-group">
+        <label class="control-title" for="panel">02 <span>FRAME & CROP</span></label>
+        <div class="two-col"><label>Editing panel<select id="panel"><option value="0">01 — Hero</option><option value="1">02 — Left</option><option value="2">03 — Right</option></select></label><label>Photo<select id="source"><option value="0">Boulevard</option><option value="1">Moon Pier</option></select></label></div>
+        <label class="range-label">Zoom <output id="zoom-value">100%</output><input id="zoom" type="range" min="100" max="240" value="100"></label>
+        <label class="range-label">Horizontal position <output id="x-value">50%</output><input id="position-x" type="range" min="0" max="100" value="50"></label>
+        <label class="range-label">Vertical position <output id="y-value">50%</output><input id="position-y" type="range" min="0" max="100" value="50"></label>
+      </section>
+      <section class="control-group">
+        <label class="control-title" for="caption">03 <span>YOUR HEADLINE</span></label>
+        <label class="field-label">Main title<input id="caption" maxlength="32" value="NIGHTS IN VICE"></label>
+        <label class="field-label">Small line<input id="kicker" maxlength="42" value="EVERY CITY HAS A SECOND SHIFT"></label>
+      </section>
+      <section class="control-group export-group">
+        <label class="control-title" for="size">04 <span>EXPORT YOUR COVER</span></label>
+        <select id="size"><option value="1080x1350">Portrait · 1080 × 1350</option><option value="1080x1080">Square · 1080 × 1080</option><option value="1920x1080">Wide · 1920 × 1080</option></select>
+        <button class="export" id="export">Download PNG <span>↗</span></button>
+        <p id="status" role="status">Your preview is ready.</p>
+      </section>
+      <footer>ORIGINAL ART · LOCAL PHOTOS · NO UPLOAD</footer>
+    </aside>
+    <section class="preview-area" aria-label="Cover preview">
+      <div class="preview-top"><div><span class="live-dot"></span> LIVE CANVAS <span class="preview-divider">/</span> <span id="dimensions">1080 × 1350</span></div><div class="preview-note">YOUR CITY, YOUR STORY</div></div>
+      <div class="poster-frame"><canvas id="cover" width="1080" height="1350" aria-label="Three-panel cover art preview"></canvas></div>
+      <div class="preview-footer"><span>01 &nbsp; AFTER DARK</span><span>DRAG CROP WITH THE SLIDERS</span><span>MIAMI · 25°46′ N</span></div>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
